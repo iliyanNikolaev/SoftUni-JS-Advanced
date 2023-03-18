@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Movie List</h1>
+    <h1>Movie List | Add Movie hard-code in JS</h1>
     <ul id="movie-list">
         <li>The Conjuring</li>
     </ul>
+
+    <h1>Movie List | DOM Events</h1>
+    <ul id="list-dom-events">
+
+    </ul>
+
+    <input type="text" name="movieName">
+    <button onclick="onAddClick()">Add</button>
 
     <script>
         // create DOM element
@@ -27,6 +40,36 @@
 
         ulElement.appendChild(movieLiElement);
         ulElement.prepend(copyMovieLiElement);
+
+        let moviesUlElements = document.querySelectorAll('#movie-list li');
+
+        for (const movie of moviesUlElements) {
+            
+            movie.addEventListener('click', (e)=> {
+                e.currentTarget.style.textDecoration = "line-through"
+            });
+        }
+
+
+
+        function onAddClick(){  //dynamicly add movie
+            let inputMovieElement = document.querySelector('input[name="movieName"]');
+
+            let movieNameStr = inputMovieElement.value;
+
+            if(movieNameStr === ''){
+                return;
+            }
+
+            let ulElementDOM = document.getElementById('list-dom-events');
+
+            let newMovieElement = document.createElement('li');
+            newMovieElement.textContent = movieNameStr;
+
+            ulElementDOM.appendChild(newMovieElement);
+
+            inputMovieElement.value = '';
+        }
 
     </script>
 </body>
