@@ -1,3 +1,9 @@
 function generateReport() {
-    //TODO
+    let headTableElements = document.querySelectorAll('tr th input');
+
+    for (const element of headTableElements) {
+        
+            console.log(element.name)
+        
+    }
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <ul id="movie-list">
+        <li>The Conjuring</li>
+    </ul>
+
+    <script>
+        // create DOM element
+
+        let movieLiElement = document.createElement('li');
+        
+        movieLiElement.textContent = 'Insidious'
+        
+        let copyMovieLiElement = movieLiElement.cloneNode(true);
+
+        copyMovieLiElement.textContent += ' II'
+        
+        let ulElement = document.getElementById('movie-list');
+
+        ulElement.appendChild(movieLiElement);
+        ulElement.prepend(copyMovieLiElement);
+
+    </script>
+</body>
+</html>
+
