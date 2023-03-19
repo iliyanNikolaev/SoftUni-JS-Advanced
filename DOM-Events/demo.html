@@ -45,8 +45,10 @@
 
         for (const movie of moviesUlElements) {
             
-            movie.addEventListener('click', (e)=> {
+            movie.addEventListener('click', (e) => {
                 e.currentTarget.style.textDecoration = "line-through"
+
+                //this.style.textDecoration = "line-through" // NOTE: 'this'=>dont work in arrow functions, it need to function expression -> function(){...}
             });
         }
 

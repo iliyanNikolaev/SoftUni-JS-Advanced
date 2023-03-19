@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Technics</title>
+</head>
+
+<body>
+    <div id="text-block" style="background-color: black; color: white; padding: 30px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, perspiciatis!
+    </div>
+
+    <input type="text" id="text-field" style="margin-top: 10px;">
+    <button id="send-btn" disabled>Send</button>
+
+    <script>
+
+        // example with mouse hovering // "change backgroundColor and textColor"
+
+        let divElement = document.getElementById('text-block');
+
+        let mouseMoveEventHandler = function (e) {
+            let bgColor = e.currentTarget.style.backgroundColor;
+
+            if (bgColor === 'black') {
+
+                e.currentTarget.style.backgroundColor = 'white';
+
+                e.currentTarget.style.color = 'black'
+            }
+        }
+
+        divElement.addEventListener('mousemove', mouseMoveEventHandler); // example with function expression because in third examle we can remove this event lisener, with arrow function we cant to remove the event lisener
+
+        divElement.addEventListener('mouseout', (e) => { // example with arrow function
+            let bgColor = e.currentTarget.style.backgroundColor;
+
+            if (bgColor === 'white') {
+
+                e.currentTarget.style.backgroundColor = 'black';
+                e.currentTarget.style.color = 'white';
+            }
+        });
+
+
+
+        //example with disabled send button when input field is empty
+
+        let inputFieldElement = document.getElementById('text-field');
+        let sendBtnElement = document.getElementById('send-btn');
+
+        inputFieldElement.addEventListener('input', () => {
+            if (inputFieldElement.value.length > 0) {
+                sendBtnElement.removeAttribute('disabled');
+            } else {
+                sendBtnElement.setAttribute('disabled', true)
+            }
+        });
+
+
+
+        //example how to remove event lisener, in current case i remove the functionality from first example when send button is clicked background color dont change anymore
+
+        sendBtnElement.addEventListener('click', () => {
+
+            divElement.removeEventListener('mousemove', mouseMoveEventHandler)
+        });
+
+
+
+        //example for that we can add more then one event listeners on one element// in this example when send button is clicked first bgcolor dont change anymore and user text in text field added to div element
+
+        sendBtnElement.addEventListener('click', () => {
+
+            divElement.textContent = inputFieldElement.value;
+        });
+
+    </script>
+</body>
+
+</html>
