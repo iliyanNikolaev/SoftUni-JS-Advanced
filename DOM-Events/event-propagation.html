@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event propagation</title>
+</head>
+
+<body>
+    <div id="parent" style="background-color: aqua; padding: 40px;">
+        <h2>Parrent</h2>
+        <div id="child" style="background-color: coral; padding: 40px;">
+            <h3>Child</h3>
+        </div>
+    </div>
+
+    <script>
+        let parentEl = document.getElementById('parent');
+        let childEl = document.getElementById('child');
+
+        parentEl.addEventListener('click', (e) => {
+
+            console.log('parent');
+        });
+
+        childEl.addEventListener('click', (e) => {
+            //e.stopPropagation(); // <= stoped execution on parrent elements with event listeners [NOTE: try with this row and without this row]
+            console.log('child');
+        });
+    </script>
+</body>
+
+</html>
