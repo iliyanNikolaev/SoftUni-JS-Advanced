@@ -17,6 +17,6 @@ printName.apply(contextObj, ['Sonya']); // Output: "Hello Sonya! My name is Ilic
 // bind method Example
 
 
-let printNameBindMethod = printName.bind(contextObj, 'Borislava'); // NO OUTPUT;
+let printNameBindMethod = printName.bind(contextObj); // NO OUTPUT;
 
-printNameBindMethod(); // Hello Borislava! My name is Ilich
+printNameBindMethod('Borislava'); // Hello Borislava! My name is Ilich
