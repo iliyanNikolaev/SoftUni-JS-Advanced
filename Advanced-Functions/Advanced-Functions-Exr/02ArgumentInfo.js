@@ -23,3 +23,15 @@ function solve() {
 }
 
 solve({ name: 'bob'}, 3.333, 9.999);
+
+console.log('--------------')
+
+function test() {
+    let argsArr = Object.values(arguments);
+
+    argsArr.forEach(element => {
+        console.log(typeof element)
+    });
+}
+
+test({ name: 'bob'}, 3.333, 9.999);
