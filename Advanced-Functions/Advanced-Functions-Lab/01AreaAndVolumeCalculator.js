@@ -27,7 +27,7 @@ function areaVol(areaFn, volFn, input){
     let inputArr = JSON.parse(input);
 
     inputArr.forEach(obj => {
-        console.log(`${areaFn.aplly(obj)} <=> ${volFn.aplly(obj)}`);
+        console.log(`${areaFn.apply(obj)} <=> ${volFn.apply(obj)}`);
     });
 }
 
