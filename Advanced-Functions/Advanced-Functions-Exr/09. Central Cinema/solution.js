@@ -5,7 +5,7 @@ function solve() {
 
   let moviesContainerEl = document.getElementById('movies').querySelector('ul');
   let archiveContainerEl = document.getElementById('archive').querySelector('ul');
-    
+
   onScreenBtn.addEventListener('click', addMovie);
   clearBtn.addEventListener('click', () => {
     archiveContainerEl.innerHTML = '';
@@ -23,7 +23,7 @@ function solve() {
       nameEl.value = '';
       hallEl.value = '';
       ticketPriceEl.value = '';
-      
+
       let li = document.createElement('li');
       let spanName = createEl('span', name);
       let strongHall = createEl('strong', `Hall: ${hall}`);
@@ -46,7 +46,7 @@ function solve() {
       archiveButton.addEventListener('click', () => {
         let userInput = Number(inputCountSoldedTickets.value);
 
-        if(!isNaN(userInput) && inputCountSoldedTickets.value !== ''){
+        if (!isNaN(userInput) && inputCountSoldedTickets.value !== '') {
           let total = userInput * ticketPrice;
 
           div.remove();
@@ -63,11 +63,11 @@ function solve() {
             li.remove();
           });
         }
-      })
+      });
     }
   }
 
-  function createEl(type, text){
+  function createEl(type, text) {
 
     let element = document.createElement(type);
     element.innerText = text;
