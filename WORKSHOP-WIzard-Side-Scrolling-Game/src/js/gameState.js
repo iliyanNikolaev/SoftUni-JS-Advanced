@@ -7,7 +7,8 @@ function initState() {
             height: 100,
             startX: 0,
             startY: 300
-        }
+        },
+        keys: {}
     };
 
     return state;
