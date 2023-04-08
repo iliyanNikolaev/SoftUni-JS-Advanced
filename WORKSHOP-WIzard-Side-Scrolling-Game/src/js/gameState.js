@@ -1,7 +1,13 @@
 function initState() {
 
     let state = {
-        player: 'ilich'
+        player: 'ilich',
+        wizard: {
+            width: 82,
+            height: 100,
+            startX: 0,
+            startY: 300
+        }
     };
 
     return state;
