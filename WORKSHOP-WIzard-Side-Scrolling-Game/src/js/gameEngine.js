@@ -8,20 +8,20 @@ function gameLoop(state, game){
     const { wizard } = state;
     const { wizardElement } = game;
     //Move wizard
-    if(state.keys.KeyA){
-        wizard.posX -= wizard.speed;
+    if(state.keys.KeyA && wizard.posX > 0){
+        wizard.posX = Math.max(wizard.posX - wizard.speed, 0);
     } 
 
     if(state.keys.KeyD){
-        wizard.posX += wizard.speed;
+        wizard.posX = Math.min(wizard.posX + wizard.speed, game.gameScreen.offsetWidth - wizard.width);
     } 
 
     if(state.keys.KeyW){
-        wizard.posY -= wizard.speed;
+        wizard.posY = Math.max(wizard.posY - wizard.speed, 0);
     }
 
     if(state.keys.KeyS){
-        wizard.posY += wizard.speed;
+        wizard.posY = Math.min(wizard.posY + wizard.speed, game.gameScreen.offsetHeight - wizard.height);
     } 
 
     //Render
