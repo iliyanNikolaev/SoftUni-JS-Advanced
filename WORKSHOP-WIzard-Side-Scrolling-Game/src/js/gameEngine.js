@@ -25,6 +25,12 @@ function gameLoop(state, game, timestamp){
         wizard.posY = Math.min(wizard.posY + wizard.speed, game.gameScreen.offsetHeight - wizard.height);
     } 
 
+    if(state.keys.Space){
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")'
+    } else {
+        game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")'
+    }
+
     //Spawn bugs
     if(timestamp > state.bugStats.nextSpawnTimeStamp){
         game.createBug(state.bugStats);
