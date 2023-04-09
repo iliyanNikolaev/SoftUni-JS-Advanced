@@ -25,6 +25,15 @@ function initGameObjects(){
             bugElement.style.top = Math.floor(Math.random() * gameScreen.offsetHeight - stats.height) + 'px';
 
             gameScreen.appendChild(bugElement);
+        },
+        createFireball(wizard, state){
+            let fireballElement = document.createElement('div');
+            fireballElement.classList.add('fireball');
+            fireballElement.style.left = wizard.posX + wizard.width + 'px';
+            fireballElement.style.top = wizard.posY + wizard.height / 3 + 5 +'px';
+            fireballElement.style.width = state.fireball.width + 'px';
+            fireballElement.style.height = state.fireball.height + 'px';
+            gameScreen.appendChild(fireballElement);
         }
     }
 }
