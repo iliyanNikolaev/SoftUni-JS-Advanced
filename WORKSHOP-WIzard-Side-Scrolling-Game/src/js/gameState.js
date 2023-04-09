@@ -9,7 +9,7 @@ function initState() {
             height: 100,
             posX: startX,
             posY: startY,
-            speed: 5
+            speed: 3
         },
         bugStats: {
             width: 50,
@@ -20,7 +20,8 @@ function initState() {
         },
         fireball: {
             width: 20,
-            height: 20
+            height: 20,
+            speed: 4 
         },
         keys: {
             KeyA: false,

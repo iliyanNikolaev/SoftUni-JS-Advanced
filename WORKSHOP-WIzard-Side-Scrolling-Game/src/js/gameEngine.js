@@ -48,6 +48,17 @@ function gameLoop(state, game, timestamp){
         }
     });
 
+    //Move fireballs
+    document.querySelectorAll('.fireball').forEach(fireball => {
+        let posX = parseInt(fireball.style.left);
+        if(posX > game.gameScreen.offsetWidth){
+            fireball.remove();
+        } else {
+            fireball.style.left = posX + state.fireball.speed + 'px';
+        }
+    });
+
+
     //Render
     wizardElement.style.right = wizard.posX + 'px';
     wizardElement.style.left = wizard.posX + 'px';
