@@ -27,7 +27,11 @@ function gameLoop(state, game, timestamp){
 
     if(state.keys.Space){
         game.wizardElement.style.backgroundImage = 'url("/src/images/wizard-fire.png")';
-        game.createFireball(wizard, state);
+
+        if(timestamp > state.fireball.nextSpawnTimeStamp){
+            game.createFireball(wizard, state);
+            state.fireball.nextSpawnTimeStamp = timestamp + state.fireball.fireRate;
+        }
     } else {
         game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")';
     }

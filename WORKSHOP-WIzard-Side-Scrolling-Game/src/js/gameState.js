@@ -21,7 +21,9 @@ function initState() {
         fireball: {
             width: 20,
             height: 20,
-            speed: 4 
+            speed: 4,
+            nextSpawnTimeStamp: 0,
+            fireRate: 500 
         },
         keys: {
             KeyA: false,
