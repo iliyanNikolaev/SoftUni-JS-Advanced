@@ -5,6 +5,8 @@ function initState() {
     let state = {
         player: 'ilich',
         gameOver: false,
+        score: 0,
+        scoreRate: 1,
         wizard: {
             width: 82,
             height: 100,

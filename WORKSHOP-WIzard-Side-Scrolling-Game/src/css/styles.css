@@ -46,3 +46,8 @@ body{
     height: 100%;
     background-color: aqua;
 }
+.score{
+    position: absolute;
+    top: 10px;
+    left: 200px;
+}

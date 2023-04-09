@@ -8,6 +8,8 @@ function gameLoop(state, game, timestamp){
     const { wizard } = state;
     const { wizardElement } = game;
 
+    game.scoreScreen.textContent = `${state.score} pts.`;
+    
     //Move wizard
     if(state.keys.KeyA && wizard.posX > 0){
         wizard.posX = Math.max(wizard.posX - wizard.speed, 0);
@@ -68,6 +70,7 @@ function gameLoop(state, game, timestamp){
             if(detectCollision(bug, fireball)){
                 bug.remove();
                 fireball.remove();
+                state.score += state.scoreRate;
             }
         });
 
@@ -86,7 +89,7 @@ function gameLoop(state, game, timestamp){
     wizardElement.style.bottom = wizard.posY + 'px';
         
     if(state.gameOver){
-        alert('Game Over')
+        alert(`Game Over ;( || You had ${state.score} pts.`)
     } else {
         window.requestAnimationFrame(gameLoop.bind(null, state, game));
     }
