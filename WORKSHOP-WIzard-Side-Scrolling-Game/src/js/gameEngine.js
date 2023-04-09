@@ -7,6 +7,7 @@ function start(state, game){
 function gameLoop(state, game){
     const { wizard } = state;
     const { wizardElement } = game;
+
     //Move wizard
     if(state.keys.KeyA && wizard.posX > 0){
         wizard.posX = Math.max(wizard.posX - wizard.speed, 0);
@@ -23,6 +24,9 @@ function gameLoop(state, game){
     if(state.keys.KeyS){
         wizard.posY = Math.min(wizard.posY + wizard.speed, game.gameScreen.offsetHeight - wizard.height);
     } 
+
+    //Spawn bugs
+    game.createBug(state.bugStats);
 
     //Render
     wizardElement.style.right = wizard.posX + 'px';
