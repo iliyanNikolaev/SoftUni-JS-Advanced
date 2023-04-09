@@ -4,6 +4,7 @@ function initState() {
 
     let state = {
         player: 'ilich',
+        gameOver: false,
         wizard: {
             width: 82,
             height: 100,
