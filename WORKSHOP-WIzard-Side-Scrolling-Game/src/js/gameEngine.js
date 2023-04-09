@@ -32,6 +32,7 @@ function gameLoop(state, game, timestamp){
         game.wizardElement.style.backgroundImage = 'url("/src/images/wizard.png")';
     }
 
+
     //Spawn bugs
     if(timestamp > state.bugStats.nextSpawnTimeStamp){
         game.createBug(state.bugStats);
@@ -39,7 +40,8 @@ function gameLoop(state, game, timestamp){
     }
 
     //Move bugs
-    document.querySelectorAll('.bug').forEach(bug => {
+    let bugElements = document.querySelectorAll('.bug');
+    bugElements.forEach(bug => {
         let posX = parseInt(bug.style.left);
         if (posX > 0){
             bug.style.left = (posX - state.bugStats.speed) + 'px'
@@ -51,6 +53,15 @@ function gameLoop(state, game, timestamp){
     //Move fireballs
     document.querySelectorAll('.fireball').forEach(fireball => {
         let posX = parseInt(fireball.style.left);
+
+        // Detect collision
+        bugElements.forEach(bug => {
+            if(detectCollision(bug, fireball)){
+                bug.remove();
+                fireball.remove();
+            }
+        });
+
         if(posX > game.gameScreen.offsetWidth){
             fireball.remove();
         } else {
@@ -67,4 +78,13 @@ function gameLoop(state, game, timestamp){
         
 
     window.requestAnimationFrame(gameLoop.bind(null, state, game));
+}
+
+function detectCollision(objA, objB){
+    let first = objA.getBoundingClientRect();
+    let second = objB.getBoundingClientRect();
+
+    let hasCollision = !(first.top > second.bottom || first.bottom < second.top || first.right < second.left || first.left > second.right);
+
+    return hasCollision;
 }
