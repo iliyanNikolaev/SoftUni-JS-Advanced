@@ -14,4 +14,4 @@ function solve(n, k) {
     return output;
 }
 
-solve(8, 2)
+solve(8, 2);
