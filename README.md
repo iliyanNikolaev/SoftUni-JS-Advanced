@@ -20,3 +20,5 @@ Topics covered in the course:
 8. Classes
 9. Prototypes and Inheritance
 
+<img width="400" alt="certificate" src="https://softuni.bg/certificates/certificates/converttoimage/188084?code=424af78a">
+
